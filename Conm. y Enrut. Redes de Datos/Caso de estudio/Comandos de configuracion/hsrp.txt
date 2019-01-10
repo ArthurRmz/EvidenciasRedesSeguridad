@@ -1,0 +1,156 @@
+B2
+-------------
+int g3/0.10
+encapsulation dot1Q 10
+ip address 10.3.33.253 255.255.254.0
+standby 1 ip 10.3.33.254
+standby 1 priority 110
+standby 1 preempt
+exit
+int g3/0.20
+encapsulation dot1Q 20
+ip address 10.3.35.253 255.255.254.0
+standby 1 ip 10.3.35.254
+standby 1 priority 110
+standby 1 preempt
+exit
+int g3/0.30
+encapsulation dot1Q 30
+ip address 10.3.37.253 255.255.254.0
+standby 1 ip 10.3.37.254
+standby 1 priority 110
+standby 1 preempt
+exit
+int g3/0.40
+encapsulation dot1Q 40
+ip address 10.3.39.253 255.255.254.0
+standby 1 ip 10.3.39.254
+standby 1 priority 110
+standby 1 preempt
+exit  
+int g3/0.50
+encapsulation dot1Q 50
+ip address 10.3.41.253 255.255.254.0
+standby 1 ip 10.3.41.254
+standby 1 priority 110
+standby 1 preempt
+exit
+int g3/0.66
+encapsulation dot1Q 66 native
+
+int g4/0.10
+encapsulation dot1Q 10
+ip address 10.3.3.252 255.255.252.0
+standby 2 ip 10.3.3.254
+standby 2 priority 109
+standby 2 preempt
+exit
+int g4/0.20
+encapsulation dot1Q 20
+ip address 10.3.7.252 255.255.252.0
+standby 2 ip 10.3.7.254
+standby 2 priority 109
+standby 2 preempt
+exit
+int g4/0.30
+encapsulation dot1Q 30
+ip address 10.3.11.252 255.255.252.0
+standby 2 ip 10.3.11.254
+standby 2 priority 109
+standby 2 preempt
+exit
+int g4/0.40
+encapsulation dot1Q 40
+ip address 10.3.15.252 255.255.252.0
+standby 2 ip 10.3.15.254
+standby 2 priority 109
+standby 2 preempt
+exit  
+int g4/0.50
+encapsulation dot1Q 50
+ip address 10.3.19.252 255.255.252.0
+standby 2 ip 10.3.19.254
+standby 2 priority 109
+standby 2 preempt
+exit
+int g4/0.66
+encapsulation dot1Q 66 native
+
+B3
+-------------
+int g2/0.10
+encapsulation dot1Q 10
+ip address 10.3.33.252 255.255.254.0
+standby 1 ip 10.3.33.254
+standby 1 priority 109
+standby 1 preempt
+exit
+int g2/0.20
+encapsulation dot1Q 20
+ip address 10.3.35.252 255.255.254.0
+standby 1 ip 10.3.35.254
+standby 1 priority 109
+standby 1 preempt
+exit
+int g2/0.30
+encapsulation dot1Q 30
+ip address 10.3.37.252 255.255.254.0
+standby 1 ip 10.3.37.254
+standby 1 priority 109
+standby 1 preempt
+exit
+int g2/0.40
+encapsulation dot1Q 40
+ip address 10.3.39.252 255.255.254.0
+standby 1 ip 10.3.39.254
+standby 1 priority 109
+standby 1 preempt
+exit  
+int g2/0.50
+encapsulation dot1Q 50
+ip address 10.3.41.252 255.255.254.0
+standby 1 ip 10.3.41.254
+standby 1 priority 109
+standby 1 preempt
+exit
+int g2/0.66
+encapsulation dot1Q 66 native
+exit
+
+int g3/0.10
+encapsulation dot1Q 10
+ip address 10.3.3.253 255.255.252.0
+standby 2 ip 10.3.3.254
+standby 2 priority 110
+standby 2 preempt
+exit
+int g3/0.20
+encapsulation dot1Q 20
+ip address 10.3.7.253 255.255.252.0
+standby 2 ip 10.3.7.254
+standby 2 priority 110
+standby 2 preempt
+exit
+int g3/0.30
+encapsulation dot1Q 30
+ip address 10.3.11.253 255.255.252.0
+standby 2 ip 10.3.11.254
+standby 2 priority 110
+standby 2 preempt
+exit
+int g3/0.40
+encapsulation dot1Q 40
+ip address 10.3.15.253 255.255.252.0
+standby 2 ip 10.3.15.254
+standby 2 priority 110
+standby 2 preempt
+exit  
+int g3/0.50
+encapsulation dot1Q 50
+ip address 10.3.19.253 255.255.252.0
+standby 2 ip 10.3.19.254
+standby 2 priority 110
+standby 2 preempt
+exit
+int g3/0.66
+encapsulation dot1Q 66 native

@@ -1,0 +1,62 @@
+-----C1-----
+router ospf 10
+router-id 4.4.4.4
+network 10.3.48.254 0.0.0.255 area 3
+network 10.3.49.154 0.0.0.3 area 0
+area 3 virtual-link 5.5.5.5
+end
+
+----- A1-------
+router ospf 10 
+router-id 6.6.6.6
+network 10.3.49.142 0.0.0.3 area 0 
+network 10.3.49.149 0.0.0.3 area 0
+end
+
+-----A2--------
+router ospf 10 
+router-id 5.5.5.5
+network 10.3.49.150 0.0.0.3 area 0 
+network 10.3.49.146 0.0.0.3 area 0
+network 10.3.49.153 0.0.0.3 area 0 
+end
+
+------A3-------
+router ospf 10 
+router-id 7.7.7.7
+network 10.3.49.141 0.0.0.3 area 0 
+network 10.3.49.145 0.0.0.3 area 0 
+network 10.3.49.138 0.0.0.3 area 0 
+area 1 virtual-link 1.1.1.1
+end
+
+------B1------
+router ospf 10 
+router-id 3.3.3.3 
+network 10.3.49.137 0.0.0.3 area 0
+network 10.3.49.130 0.0.0.3 area 1
+network 10.3.49.134 0.0.0.3 area 1
+end
+
+--------B2--------
+router ospf 10 
+router-id 1.1.1.1 
+network 10.3.49.129 0.0.0.3 area 1
+network 10.3.49.126 0.0.0.127 area 1 
+network 10.3.33.254 0.0.1.255 area 1
+network 10.3.35.254 0.0.1.255 area 1
+network 10.3.37.254 0.0.1.255 area 1
+network 10.3.39.254 0.0.1.255 area 1
+network 10.3.41.254 0.0.1.255 area 1
+end
+
+-------- B3-------
+router ospf 10 
+router-id 2.2.2.2
+network 10.3.49.133 0.0.0.3 area 1
+network 10.3.3.254 0.0.3.255 area 1
+network 10.3.7.254 0.0.3.255 area 1
+network 10.3.11.254 0.0.3.255 area 1
+network 10.3.15.254 0.0.3.255 area 1
+network 10.3.19.254 0.0.3.255 area 1
+end

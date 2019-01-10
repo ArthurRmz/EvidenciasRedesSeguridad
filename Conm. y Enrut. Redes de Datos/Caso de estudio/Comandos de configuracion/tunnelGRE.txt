@@ -1,0 +1,17 @@
+A2
+-------------------
+interface tunnel 0
+ip address 200.3.0.1 255.255.255.252
+tunnel source s0/0/0
+tunnel destination 10.3.49.154
+tunnel mode gre ip
+no shutdown
+
+C1
+-------------------
+interface tunnel 0
+ip address 200.3.0.2 255.255.255.252
+tunnel source s0/0/0
+tunnel destination 10.3.49.153
+tunnel mode gre ip
+no shutdown

@@ -1,0 +1,6 @@
+conf t
+ntp server 10.3.49.2
+ntp update-calendar 
+logging host 10.3.49.2
+service timestamps log datetime msec 
+end 

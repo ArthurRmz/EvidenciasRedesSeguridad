@@ -1,0 +1,11 @@
+A2
+access-list 100 permit ip any 200.3.0.8 0.0.0.7
+int s0/0/1
+ip access-group 100 in
+exit
+
+C1
+access-list 100 permit ip 10.3.48.0 0.0.0.255 10.3.49.0 0.0.1.255
+int g0/0
+ip access-group 100 in
+exit

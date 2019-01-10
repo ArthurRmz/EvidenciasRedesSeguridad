@@ -1,0 +1,25 @@
+int range f0/3-5
+switchport mode access
+switchport access vlan 10
+exit
+int range f0/6-9
+switchport mode access
+switchport access vlan 20
+exit
+int range f0/10-12
+switchport mode access
+switchport access vlan 30
+exit
+int range f0/13-15
+switchport mode access
+switchport access vlan 40
+exit
+int range f0/16-18
+switchport mode access
+switchport access vlan 50
+exit
+int range f0/16-18
+switchport port-security
+switchport port-security violation shutdown
+switchport port-security mac-address sticky
+switchport port-security maximum 1

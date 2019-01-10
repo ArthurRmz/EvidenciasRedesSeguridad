@@ -1,0 +1,39 @@
+PAP
+-------------
+A3
+username B1 secret cisco123
+int s0/0/0
+encapsulation ppp
+ppp authentication pap
+ppp pap sent-username A3 password cisco321
+
+B1
+username A3 secret cisco321
+int s0/0/0
+encapsulation ppp
+ppp authentication pap
+ppp pap sent-username B1 password cisco123
+
+CHAP
+-------------
+B1 
+username B2 secret cisco123
+int s0/0/1
+encapsulation ppp
+ppp authentication chap
+B2
+username B1 secret cisco123
+int s0/0
+encapsulation ppp
+ppp authentication chap
+
+B1
+username B3 secret cisco321
+int s0/1/0
+encapsulation ppp
+ppp authentication chap
+B3
+username B1 secret cisco321
+int s0/0
+encapsulation ppp
+ppp authentication chap

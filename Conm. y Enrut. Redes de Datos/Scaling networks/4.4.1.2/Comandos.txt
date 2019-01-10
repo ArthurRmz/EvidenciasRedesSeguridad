@@ -1,0 +1,139 @@
+R1
+int g0/0.1
+encapsulation dot1Q 1
+ip address 192.168.99.1 255.255.255.0
+int g0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.1 255.255.255.0
+int g0/0.20
+encapsulation dot1Q 20
+ip address 192.168.20.1 255.255.255.0
+exit
+int g0/0
+no shutdown
+exit
+
+R2
+int g0/0.1
+encapsulation dot1Q 1
+ip address 192.168.99.2 255.255.255.0
+int g0/0.10
+encapsulation dot1Q 10
+ip address 192.168.10.2 255.255.255.0
+int g0/0.20
+encapsulation dot1Q 20
+ip address 192.168.20.2 255.255.255.0
+exit
+int g0/0
+no shutdown
+exit
+
+R1,R2
+router rip
+version 2
+network 192.168.1.0
+network 192.168.10.0
+network 192.168.20.0
+network 192.168.99.0
+network 209.165.200.0
+network 209.165.202.0
+no auto-summary
+passive-interface GigabitEthernet0/0.1
+passive-interface GigabitEthernet0/0.10
+passive-interface GigabitEthernet0/0.20
+
+S1
+vtp mode server
+vtp domain CCNA
+vtp password cisco123
+vlan 10
+vlan 20
+vlan 99
+
+S2,S3,S4
+vtp mode client
+vtp domain CCNA
+vtp password cisco123
+
+S1,S2,S3,S4
+int range f0/21-24, g0/1-2
+switchport mode trunk
+switchport trunk native vlan 99
+no shutdown
+exit
+
+S1,S2
+int range f0/1-9
+switchport mode access
+switchport access vlan 10
+exit
+int range f0/10-19
+switchport mode access
+switchport access vlan 20
+end
+
+S3,S4
+int range f0/1-9
+switchport mode access
+switchport access vlan 10
+exit
+int range f0/10-20
+switchport mode access
+switchport access vlan 20
+end
+
+S1,S3
+int range g0/1-2
+channel-group 1 mode active
+interface port-channel 1
+switchport mode trunk
+switchport trunk native vlan 99
+no shutdown 
+exit
+
+S2,S4
+int range g0/1-2
+channel-group 2 mode active
+interface port-channel 2
+switchport mode trunk
+switchport trunk native vlan 99
+no shutdown 
+exit
+
+S1,S2
+int range f0/23-24
+channel-group 3 mode active
+interface port-channel 3
+switchport mode trunk
+switchport trunk native vlan 99
+no shutdown 
+exit
+
+S3,S4
+int range f0/23-24
+channel-group 4 mode active
+interface port-channel 4
+switchport mode trunk
+switchport trunk native vlan 99
+no shutdown 
+exit
+
+S1,S4
+int range f0/21-22
+channel-group 5 mode active
+interface port-channel 5
+switchport mode trunk
+switchport trunk native vlan 99
+no shutdown 
+exit
+
+S2,S3
+int range f0/21-22
+channel-group 6 mode active
+interface port-channel 6
+switchport mode trunk
+switchport trunk native vlan 99
+no shutdown 
+exit
+
+spanning-tree mode rapid-pvst

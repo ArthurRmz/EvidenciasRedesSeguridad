@@ -1,0 +1,135 @@
+*******************************************
+*      SKILLS INTEGRATION CHALLENGE       *
+*******************************************
+
+---------------------------------------------------------------
+-    PART 1: Divide 172.16.128.0/19 into two equal subnets    -
+---------------------------------------------------------------
+First subnet   172.16.128.0/20 
+	First IP:  172.16.128.1/20
+	Last IP:   172.16.143.254/20
+	Broadcast: 172.16.143.255/20  
+
+Second subnet: 172.16.144.0/20
+	First IP:  172.16.144.1/20
+	Last IP:   172.16.159.254/20
+	Broadcast: 172.16.159.255/20
+
+Check PDF to complete your own routing table. Its necesary to
+configure branch´s interfaces. 
+
+		********** BRANCH **********
+enable
+configure terminal
+int g0/0
+ip address 172.16.159.254 255.255.240.0
+exit
+int g0/1
+ip address 172.16.143.254 255.255.240.0
+exit
+
+---------------------------------------------------------------
+-      PART 2: Configure B1 with appropiate IPv4 address      -
+---------------------------------------------------------------
+B1 IPv4 Config;
+	IP Address: 172.16.144.1 
+	Subnetmask: 255.255.240.0
+	Default gateway: 172.16.159.254
+
+---------------------------------------------------------------
+-      PART 3: Configure BRANCH with appropiate IPv6 Add      -
+---------------------------------------------------------------
+		********** BRANCH **********
+int g0/0
+ipv6 address 2001:DB8:ACAD:B1::1/64
+exit
+int g0/1
+ipv6 address 2001:DB8:ACAD:B2::1/64
+exit
+
+---------------------------------------------------------------
+-      PART 4: Configure B1 and B2 with appropiate IPv6       -
+---------------------------------------------------------------
+B1 IPv6 Config;
+	IPv6 Address: 2001:DB8:ACAD:B1::2/64
+	Link local address:
+	IPv6 gateway: 2001:DB8:ACAD:B1::1/64
+	IPv6 DNS server:
+
+B2 IPv6 Config;
+	IPv6 Address: 2001:DB8:ACAD:B2::2/64
+	Link local address:
+	IPv6 gateway: 2001:DB8:ACAD:B2::1/64
+	IPv6 DNS server:
+
+---------------------------------------------------------------
+- PART 5: Document the addressing in the Addressing Table     -
+---------------------------------------------------------------
+Register the data from step 4 on the pdf routing table.
+
+---------------------------------------------------------------
+-    PART 6: Configure HQ and Branch with OSPFv2 for IPv4     -
+---------------------------------------------------------------
+		********** BRANCH **********
+router ospf 1
+network 172.16.128.0 0.0.15.255 area 0
+network 172.16.144.0 0.0.15.255 area 0
+network 192.168.0.0 0.0.0.3 area 0
+passive-interface g0/0
+passive-interface g0/1
+exit
+		********** HQ **********
+enable
+configure terminal
+router ospf 1
+network 172.16.0.0 0.0.63.255 area 0
+network 172.16.64.0 0.0.63.255 area 0
+network 192.168.0.0 0.0.0.3 area 0
+passive-interface g0/0
+passive-interface g0/1
+exit
+---------------------------------------------------------------
+-    		PART 7: Set IPv4 default route on HQ              -
+---------------------------------------------------------------
+		********** HQ **********
+ip route 0.0.0.0 0.0.0.0 s0/0/1
+router ospf 1
+default-information originate
+exit
+
+---------------------------------------------------------------
+-    		  PART 8: ACCESS LIST PART ONE                    -
+---------------------------------------------------------------
+		********** BRANCH **********
+ip access-list extended HQServer
+deny ip any host 172.16.0.1
+permit ip any any 
+exit
+int g0/0
+ip access-group HQServer in
+exit
+
+---------------------------------------------------------------
+-    		  PART 9: ACCESS LIST PART TWO                    -
+---------------------------------------------------------------
+		********** HQ **********
+ip access-list extended BranchServer
+deny tcp any host 172.16.128.1 eq 80
+deny tcp any host 172.16.128.1 eq 443
+permit ip any any
+exit
+int g0/0
+ip access-group BranchServer in
+exit
+
+---------------------------------------------------------------
+-    		  PART 10: ACCESS LIST PART THREE                 -
+---------------------------------------------------------------
+		********** BRANCH **********
+ipv6 access-list NO-B1
+deny ipv6 host 2001:DB8:ACAD:B1::2 host 2001:DB8:ACAD:B2::3
+permit ipv6 any any
+exit
+int g0/0
+ipv6 traffic-filter NO-B1 in
+exit

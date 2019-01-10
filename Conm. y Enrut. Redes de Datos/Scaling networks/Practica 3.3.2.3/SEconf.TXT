@@ -1,0 +1,212 @@
+debug spanning-tree eventsconf t                    spanning-tree portfast bpduguard defaultdefault          mode rapid-pvst conf t                       debug spanning-tree eventsconf t                    en    conf t      end
+Translating "end"
+% Unknown command or computer name, or unable to find computer address
+S3#ec xit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+S3 con0 is now available
+
+
+
+
+
+Press RETURN to get started.
+
+
+
+
+
+
+Unauthorized access is prohibited!
+
+User Access Verification
+
+Password: 
+Password: 
+S3>en
+Password: 
+S3#show run
+Building configuration...
+
+Current configuration : 1964 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname S3
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$hQOp$dm663pfNcFGrN9/.Htthj0
+!
+!
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+no ip domain-lookup
+ --More--         !
+ --More--         !
+ --More--         !
+ --More--         !
+ --More--         !
+!
+!
+spanning-tree mode rapid-pvst
+spanning-tree portfast default
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface FastEthernet0/1
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ shutdown
+!
+interface FastEthernet0/3
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface FastEthernet0/4
+ --More--          shutdown
+!
+interface FastEthernet0/5
+ shutdown
+!
+interface FastEthernet0/6
+ shutdown
+!
+interface FastEthernet0/7
+ shutdown
+!
+interface FastEthernet0/8
+ shutdown
+!
+interface FastEthernet0/9
+ shutdown
+!
+interface FastEthernet0/10
+ shutdown
+!
+interface FastEthernet0/11
+ shutdown
+!
+ --More--         interface FastEthernet0/12
+ shutdown
+!
+interface FastEthernet0/13
+ shutdown
+!
+interface FastEthernet0/14
+ shutdown
+!
+interface FastEthernet0/15
+ shutdown
+!
+interface FastEthernet0/16
+ shutdown
+!
+interface FastEthernet0/17
+ shutdown
+!
+interface FastEthernet0/18
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/19
+ --More--          shutdown
+!
+interface FastEthernet0/20
+ shutdown
+!
+interface FastEthernet0/21
+ shutdown
+!
+interface FastEthernet0/22
+ shutdown
+!
+interface FastEthernet0/23
+ shutdown
+!
+interface FastEthernet0/24
+ shutdown
+!
+interface GigabitEthernet0/1
+ shutdown
+!
+interface GigabitEthernet0/2
+ shutdown
+!
+ --More--         interface Vlan1
+ no ip address
+!
+interface Vlan99
+ ip address 192.168.1.13 255.255.255.0
+!
+ip http server
+ip http secure-server
+banner motd ^CUnauthorized access is prohibited!^C
+!
+line con 0
+ password 7 00071F071748
+ login
+line vty 0 4
+ password 7 00071F071748
+ logging synchronous
+ login
+line vty 5 15
+ password 7 00071F071748
+ logging synchronous
+ login
+!
+end
+ --More--         
+S3#debug s
+S3#debug sp        debug spanning-tree events
+Spanning Tree event debugging is on
+S3#
+*Mar  1 00:49:23.409: RSTP(10): initializing port Fa0/18
+*Mar  1 00:49:23.409: RSTP(10): Fa0/18 is now designated
+*Mar  1 00:49:25.406: %LINK-3-UPDOWN: Interface FastEthernet0/18, changed state to up
+*Mar  1 00:49:26.413: %LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/18, changed state to up
+S3#

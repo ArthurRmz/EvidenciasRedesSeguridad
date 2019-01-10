@@ -1,0 +1,38 @@
+interface g0/1
+switchport mode dynamic desirable
+exit
+
+interface g0/2
+switchport mode trunk
+exit
+
+interface range g0/1 - 2
+switchport trunk native vlan 999
+
+vtp mode client
+vtp domain CCNA
+vtp password cisco
+exit
+show vtp password
+
+vtp mode Transparent
+vtp domain CCNA
+vtp password cisco
+
+vlan 10
+name Red
+vlan 20
+name Blue
+vlan 30
+name Yellow
+
+
+interface range f0/1 - 8
+switchport mode access
+switchport access vlan 10
+interface range f0/9 -16
+switchport mode access
+switchport access vlan 20
+interface range f0/17 - 24
+switchport mode access
+switchport access vlan 30

@@ -1,0 +1,148 @@
+S2#show running-config
+Building configuration...
+
+Current configuration : 2138 bytes
+!
+version 12.1
+no service pad
+service timestamps debug uptime
+service timestamps log uptime
+service password-encryption
+!
+hostname S2
+!
+enable secret 5 $1$7QmD$TI5PNIsVB09jSIGaB7z6b1
+!
+ip subnet-zero
+no ip domain-lookup
+!
+!
+spanning-tree extend system-id
+spanning-tree vlan 1 priority 24576
+spanning-tree vlan 10 priority 24576
+spanning-tree vlan 99 priority 24576
+!
+!
+interface FastEthernet0/1
+ switchport trunk native vlan 99
+ switchport mode trunk
+ no ip address
+!
+interface FastEthernet0/2
+ no ip address
+ shutdown
+!
+interface FastEthernet0/3
+ switchport trunk native vlan 99
+ switchport mode trunk
+ no ip address
+!
+interface FastEthernet0/4
+ no ip address
+ shutdown
+!
+interface FastEthernet0/5
+ no ip address
+ shutdown
+!
+interface FastEthernet0/6
+ no ip address
+ shutdown
+!
+interface FastEthernet0/7
+ no ip address
+ shutdown
+!
+interface FastEthernet0/8
+ no ip address
+ shutdown
+!
+interface FastEthernet0/9
+ no ip address
+ shutdown
+!
+interface FastEthernet0/10
+ no ip address
+ shutdown
+!
+interface FastEthernet0/11
+ no ip address
+ shutdown
+!
+interface FastEthernet0/12
+ no ip address
+ shutdown
+!
+interface FastEthernet0/13
+ no ip address
+ shutdown
+!
+interface FastEthernet0/14
+ no ip address
+ shutdown
+!
+interface FastEthernet0/15
+ no ip address
+ shutdown
+!
+interface FastEthernet0/16
+ no ip address
+ shutdown
+!
+interface FastEthernet0/17
+ no ip address
+ shutdown
+!
+interface FastEthernet0/18
+ no ip address
+ shutdown
+!
+interface FastEthernet0/19
+ no ip address
+ shutdown
+!
+interface FastEthernet0/20
+ no ip address
+ shutdown
+!
+interface FastEthernet0/21
+ no ip address
+ shutdown
+!
+interface FastEthernet0/22
+ no ip address
+ shutdown
+!
+interface FastEthernet0/23
+ no ip address
+ shutdown
+!
+interface FastEthernet0/24
+ no ip address
+ shutdown
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+ shutdown
+!
+interface Vlan99
+ ip address 192.168.1.12 255.255.255.0
+ no ip route-cache
+!
+ip http server
+!
+banner motd ^CUnauthorized access is prohibited!^C
+!
+line con 0
+ password 7 01100A054818
+ login
+line vty 0 4
+ password 7 01100A054818
+ logging synchronous
+ login
+line vty 5 15
+ password 7 01100A054818
+ logging synchronous
+ login
+!

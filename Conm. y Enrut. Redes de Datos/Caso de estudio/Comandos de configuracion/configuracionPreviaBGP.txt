@@ -1,0 +1,19 @@
+A2
+int s0/0/1
+ip address 200.3.0.5 255.255.255.252
+no shutdown
+exit
+ip route 0.0.0.0 0.0.0.0 200.3.0.6
+router ospf 10
+default-information originate
+
+ISP
+int s0/0/1
+ip address 200.3.0.6 255.255.255.252
+no shutdown
+exit
+int g0/0
+ip address 1.1.1.254 255.255.255.0
+no shutdown
+exit
+ip route 0.0.0.0 0.0.0.0 200.3.0.5

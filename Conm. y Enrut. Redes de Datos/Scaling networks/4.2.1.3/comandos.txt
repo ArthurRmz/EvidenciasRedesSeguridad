@@ -1,0 +1,50 @@
+S1
+hostname S1
+int range g0/1-2,f0/21-22
+switchport mode trunk
+shutdown 
+
+S2
+hostname S2
+int range g0/1-2,f0/23-24
+switchport mode trunk
+shutdown 
+
+S3
+hostname S3
+int range f0/21-24
+switchport mode trunk
+shutdown 
+
+
+S1,S3
+int range f0/21-22
+channel-group 1 mode desirable 
+interface port-channel 1
+switchport mode trunk
+no shutdown 
+exit
+
+S1,S2
+int range g0/1-2
+channel-group 2 mode active
+interface port-channel 2
+switchport mode trunk
+no shutdown 
+exit
+
+S2
+int range f0/23-24
+channel-group 3 mode passive
+interface port-channel 3
+switchport mode trunk
+no shutdown 
+exit
+
+S3
+int range f0/23-24
+channel-group 3 mode active
+interface port-channel 3
+switchport mode trunk
+no shutdown 
+exit

@@ -1,0 +1,4 @@
+access-list 199 permit tcp 10.101.117.32 0.0.0.15 10.101.117.0 0.0.0.31 eq telnet
+access-list 199 permit icmp any any
+int g0/2
+ip access-group 199 out

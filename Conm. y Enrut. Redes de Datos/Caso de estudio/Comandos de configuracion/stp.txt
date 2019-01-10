@@ -1,0 +1,13 @@
+S23,S33
+---------------
+spanning-tree mode rapid-pvst
+no spanning-tree vlan 10,20,30,40,50,66 root primary
+
+S24,S34
+---------------
+spanning-tree mode rapid-pvst
+no spanning-tree vlan 10,20,30,40,50,66 root secondary 
+
+S21,S22,S25,S26,S27,S31,S32,S35,S36,S37
+---------------
+spanning-tree mode pvst

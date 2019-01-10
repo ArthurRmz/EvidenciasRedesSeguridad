@@ -1,0 +1,24 @@
+todos los dipositivos 
+--------------
+no ip domain-lookup
+hostname S37
+service password-encryption
+enable secret class
+banner motd #Warning.#
+line con 0
+password cisco
+login
+logging synchronous
+line vty 0 4
+password cisco
+login
+exit
+ip domain-name cisco.com	
+crypto key generate rsa
+1024
+username admin secret cisco
+line vty 0 4
+transport input ssh
+login local
+exit
+ip ssh version 2

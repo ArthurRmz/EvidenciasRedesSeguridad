@@ -1,0 +1,16 @@
+spanning-tree vlan 1 priority 24576
+show spanning-tree.
+
+spanning-tree vlan id_de_vlan root primary
+spanning-tree vlan id_de_vlan root secondary
+
+Método 1
+Para asegurarse de que el switch tenga el valor de prioridad de puente más bajo, utilice el comando spanning-tree vlan id_de_vlan root primary en el modo de configuración global. La prioridad para el switch está establecida en el valor predefinido 24576 o en el múltiplo más alto de 4096, menos que la prioridad del puente más baja detectada en la red.
+Si se desea un puente raíz alternativo, utilice el comando spanning-tree vlan id_de_vlan root secondary en el modo de configuración global. Este comando establece la prioridad para el switch en el valor predeterminado 28672. Esto asegura que el switch alternativo se convierta en el puente raíz si falla el puente raíz principal. Se supone que el resto de los switches en la red tienen definido el valor de prioridad predeterminado 32768.
+En la figura 1, el S1 se asignó como puente raíz principal mediante el comando spanning-tree vlan 1 root primary, y el S2 se configuró como puente raíz secundario mediante el comando spanning-tree vlan 1 root secondary.
+
+Método 2
+Otro método para configurar el valor de la prioridad de puente es utilizar el comando spanning-tree vlan id_de_vlan priority value en el modo de configuración global. Este comando da un control más detallado del valor de prioridad del puente. El valor de prioridad se configura en incrementos de 4096 entre 0 y 61440.
+En el ejemplo, se asignó el valor de prioridad de puente 24576 al S3 mediante el comando spanning-tree vlan 1 priority 24576.
+Para verificar la prioridad del puente de un switch, utilice el comando show spanning-tree. En la figura 2, la prioridad del switch se estableció en 24576. Además, observe que el switch está designado como puente raíz para la instancia de árbol de expansión.
+Utilice el verificador de sintaxis de la figura 3 para configurar los switches S1, S2 y S3. Mediante el método 2 descrito anteriormente, configure el S3 de forma manual y establezca el valor de prioridad en 24576 para la VLAN 1. Mediante el método 1, configure el S2 como raíz secundaria para la VLAN 1 y el S1 como raíz principal para la VLAN 1. Verifique la configuración con el comando show spanning-tree en el S1.

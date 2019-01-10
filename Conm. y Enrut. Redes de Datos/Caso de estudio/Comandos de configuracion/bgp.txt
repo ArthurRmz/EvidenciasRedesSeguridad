@@ -1,0 +1,21 @@
+-------------A2--------------
+no router bgp 65000
+router bgp 65000
+neighbor 200.3.0.6 remote-as 65001
+network 200.3.0.4 255.255.255.252
+router bgp 65000
+redistribute ospf 10
+router ospf 10
+redistribute bgp 65000 subnet
+
+-------------ISP-------------
+interface Loopback0
+ip address 6.6.6.6 255.255.255.255
+no shutdown
+exit
+no router bgp 65001
+router bgp 65001
+neighbor 200.3.0.5 remote-as 65000
+network 200.3.0.4 255.255.255.252
+network 6.6.6.6 255.255.255.255
+network 1.1.1.0 255.255.255.0

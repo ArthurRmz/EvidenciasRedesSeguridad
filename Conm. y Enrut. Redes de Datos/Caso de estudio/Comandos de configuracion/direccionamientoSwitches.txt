@@ -1,0 +1,95 @@
+S21
+int vlan 50
+ip address 10.3.41.251 255.255.254.0
+no shutdown
+ip default-gateway 10.3.41.254
+
+S22
+int vlan 50
+ip address 10.3.41.250 255.255.254.0
+no shutdown
+ip default-gateway 10.3.41.254
+
+S23
+int vlan 50
+ip address 10.3.41.249 255.255.254.0
+no shutdown
+ip default-gateway 10.3.41.254
+
+S24
+int vlan 50
+ip address 10.3.41.248 255.255.254.0
+no shutdown
+ip default-gateway 10.3.41.254
+
+S25
+int vlan 50
+ip address 10.3.41.247 255.255.254.0
+no shutdown
+ip default-gateway 10.3.41.254
+
+S26
+int vlan 50
+ip address 10.3.41.246 255.255.254.0
+no shutdown
+ip default-gateway 10.3.41.254
+
+S27
+int vlan 50
+ip address 10.3.41.245 255.255.254.0
+no shutdown
+ip default-gateway 10.3.41.254
+
+S31
+int vlan 50
+ip address 10.3.19.251 255.255.252.0
+no shutdown
+ip default-gateway 10.3.19.254
+
+S32
+int vlan 50
+ip address 10.3.19.250 255.255.252.0
+no shutdown
+ip default-gateway 10.3.19.254
+
+S33
+int vlan 50
+ip address 10.3.19.249 255.255.252.0
+no shutdown
+ip default-gateway 10.3.19.254
+
+S34
+int vlan 50
+ip address 10.3.19.248 255.255.252.0
+no shutdown
+ip default-gateway 10.3.19.254
+
+S35
+int vlan 50
+ip address 10.3.19.247 255.255.252.0
+no shutdown
+ip default-gateway 10.3.19.254
+
+S36
+int vlan 50
+ip address 10.3.19.246 255.255.252.0
+no shutdown
+ip default-gateway 10.3.19.254
+
+S37
+int vlan 50
+ip address 10.3.19.245 255.255.252.0
+no shutdown
+ip default-gateway 10.3.19.254
+
+SB21
+int vlan 1
+ip address 10.3.49.125 255.255.255.128
+no shutdown
+ip default-gateway 10.3.49.126
+
+SC1
+int vlan 1
+ip address 10.3.48.253 255.255.255.0
+no shutdown
+ip default-gateway 10.3.48.254

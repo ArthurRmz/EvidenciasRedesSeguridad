@@ -1,0 +1,84 @@
+B2
+-------------
+int s0/0
+ip address 10.3.49.129 255.255.255.252
+no shutdown
+exit
+int g2/0
+ip address 10.3.49.126 255.255.255.128
+no shutdown
+exit
+
+B1
+-------------
+int s0/0/1
+ip address 10.3.49.130 255.255.255.252
+no shutdown
+exit
+int s0/1/0
+ip address 10.3.49.134 255.255.255.252
+no shutdown
+exit
+int s0/0/0
+ip address 10.3.49.137 255.255.255.252
+no shutdown
+exit
+
+B3
+-------------
+int s0/0
+ip address 10.3.49.133 255.255.255.252
+no shutdown
+exit
+
+A3
+-------------
+int s0/0/0
+ip address 10.3.49.138 255.255.255.252
+no shutdown
+exit
+int g0/0
+ip address 10.3.49.141 255.255.255.252
+no shutdown
+exit
+int g0/1
+ip address 10.3.49.145 255.255.255.252
+no shutdown
+exit
+
+A1
+-------------
+int g0/0
+ip address 10.3.49.142 255.255.255.252
+no shutdown
+exit
+int g0/1
+ip address 10.3.49.149 255.255.255.252
+no shutdown
+exit
+
+A2
+-------------
+int g0/0
+ip address 10.3.49.150 255.255.255.252
+no shutdown
+exit
+int g0/1
+ip address 10.3.49.146 255.255.255.252
+no shutdown
+exit
+int s0/0/0
+ip address 10.3.49.153 255.255.255.252
+no shutdown
+exit
+
+C1
+-------------
+int s0/0/0
+ip address 10.3.49.154 255.255.255.252
+no shutdown
+exit
+int g0/0
+ip address 10.3.48.254 255.255.255.0
+no shutdown
+exit

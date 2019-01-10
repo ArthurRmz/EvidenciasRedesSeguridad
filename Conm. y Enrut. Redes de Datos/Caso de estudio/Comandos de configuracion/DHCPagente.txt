@@ -1,0 +1,99 @@
+B2
+------------
+int g2/0
+ip helper-address 10.3.49.1
+no shutdown 
+exit
+
+int g3/0.10
+encapsulation dot1Q 10
+ip helper-address 10.3.49.1
+exit
+int g3/0.20
+encapsulation dot1Q 20
+ip helper-address 10.3.49.1
+exit
+int g3/0.30
+encapsulation dot1Q 30
+ip helper-address 10.3.49.1
+exit
+int g3/0.40
+encapsulation dot1Q 40
+ip helper-address 10.3.49.1
+exit  
+int g3/0.50
+encapsulation dot1Q 50
+ip helper-address 10.3.49.1
+exit
+
+int g4/0.10
+encapsulation dot1Q 10
+ip helper-address 10.3.49.1
+exit
+int g4/0.20
+encapsulation dot1Q 20
+ip helper-address 10.3.49.1
+exit
+int g4/0.30
+encapsulation dot1Q 30
+ip helper-address 10.3.49.1
+exit
+int g4/0.40
+encapsulation dot1Q 40
+ip helper-address 10.3.49.1
+exit  
+int g4/0.50
+encapsulation dot1Q 50
+ip helper-address 10.3.49.1
+exit
+
+B3
+------------
+int g2/0.10
+encapsulation dot1Q 10
+ip helper-address 10.3.49.1
+exit
+int g2/0.20
+encapsulation dot1Q 20
+ip helper-address 10.3.49.1
+exit
+int g2/0.30
+encapsulation dot1Q 30
+ip helper-address 10.3.49.1
+exit
+int g2/0.40
+encapsulation dot1Q 40
+ip helper-address 10.3.49.1
+exit  
+int g2/0.50
+encapsulation dot1Q 50
+ip helper-address 10.3.49.1
+exit
+
+int g3/0.10
+encapsulation dot1Q 10
+ip helper-address 10.3.49.1
+exit
+int g3/0.20
+encapsulation dot1Q 20
+ip helper-address 10.3.49.1
+exit
+int g3/0.30
+encapsulation dot1Q 30
+ip helper-address 10.3.49.1
+exit
+int g3/0.40
+encapsulation dot1Q 40
+ip helper-address 10.3.49.1
+exit  
+int g3/0.50
+encapsulation dot1Q 50
+ip helper-address 10.3.49.1
+exit
+
+C1
+------------
+int g0/0
+ip helper-address 10.3.49.1
+no shutdown 
+exit

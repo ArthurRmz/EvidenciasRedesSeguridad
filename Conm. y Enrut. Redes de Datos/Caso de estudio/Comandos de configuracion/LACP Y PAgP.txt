@@ -1,0 +1,31 @@
+LACP 
+S21 Y S22
+interface range fa0/1-2
+channel-group 1 mode active 
+int port-channel 1 
+switchport mode trunk 
+switchport trunk allowed vlan 10,20,30,40,50,66
+
+PAgP
+
+S31 
+interface range fa0/1-2
+channel-protocol pagp 
+channel-group 1 mode desirable
+no shutdown 
+interface port-channel 1 
+switchport mode trunk 
+switchport trunk allowed vlan 10,20,30,40,50,66
+exit 
+
+s32
+interface range fa0/1-2
+channel-protocol pagp 
+channel-group 1 mode auto
+no shutdown 
+interface port-channel 1 
+switchport mode trunk 
+switchport trunk allowed vlan 10,20,30,40,50,66
+exit 
+
+

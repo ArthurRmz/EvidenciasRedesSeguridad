@@ -1,0 +1,11 @@
+int range f0/1-2
+shutdown
+switchport mode trunk
+switchport trunk native vlan 66
+channel-group 1 mode desirable
+exit
+//lacp -> active, pagp -> desirable 
+
+int port-channel 1
+switchport mode trunk
+switchport trunk native vlan 66

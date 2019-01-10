@@ -1,0 +1,45 @@
+s21, s31
+----------
+vtp mode server 
+vtp domain cisco
+vtp password cisco123
+vlan 10
+name Sales
+vlan 20
+name Accounting
+vlan 30
+name HR
+vlan 40
+name Production
+vlan 50
+name Management
+vlan 66
+name Native
+
+s22,s23,s24,s25,s26,s27,s32,s33,s34,s35,s36,s37
+----------
+vtp mode client
+vtp domain cisco
+vtp password cisco123
+
+s21,s22,s31,s32
+----------
+int range f0/1-8
+switchport mode dynamic desirable 
+switchport native vlan 66
+int range f0/7-8
+switchport mode trunk
+
+s23,s24,s33,s34
+----------
+int range f0/5-7
+switchport mode dynamic desirable 
+switchport native vlan 66
+int range f0/1-4
+switchport native vlan 66
+
+s25,s26,s27,s35,s36,s37
+----------
+int range f0/1-2
+switchport native vlan 66
+
