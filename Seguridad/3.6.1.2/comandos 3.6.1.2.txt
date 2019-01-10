@@ -1,0 +1,17 @@
+interface g0/1 
+ip address 192.168.3.1 255.255.255.0
+no shutdown
+exit
+interface s0/0/1 
+ip address 10.2.2.1 255.255.255.252
+no shutdown
+exit
+R3(config)# router ospf 1
+R3(config-router)# passive-interface g0/1
+R3# copy scp: flash:
+R3# show flash
+R3# more R1-Config
+R3(config)# interface s0/0/1
+R3(config-if)# ip ospf authentication key-chain NetAcad
+R3# show ip route
+R3# auto secure

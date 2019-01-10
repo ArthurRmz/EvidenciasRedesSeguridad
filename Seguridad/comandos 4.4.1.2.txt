@@ -1,0 +1,49 @@
+ip route 0.0.0.0 0.0.0.0 10.2.2.2
+
+zone security INSIDE
+zone security CONFROOM
+zone security INTERNET
+
+class-map type inspect match-any INSIDE_PROTOCOLS
+match protocol tcp
+match protocol udp
+match protocol icmp
+
+class-map type inspect match-any CONFROOM_PROTOCOLS
+match protocol http
+match protocol https
+match protocol dns
+
+policy-map type inspect INSIDE_TO_INTERNET
+class type inspect INSIDE_PROTOCOLS
+inspect
+policy-map type inspect CONFROOM_TO_INTERNET
+class type inspect CONFROOM_PROTOCOLS
+inspect
+
+zone-pair security INSIDE_TO_INTERNET source INSIDE destination INTERNET
+zone-pair security CONFROOM_TO_INTERNET source CONFROOM destination INTERNET
+
+zone-pair security INSIDE_TO_INTERNET
+service-policy type inspect INSIDE_TO_INTERNET
+zone-pair security CONFROOM_TO_INTERNET
+service-policy type inspect CONFROOM_TO_INTERNET
+
+interface g0/0
+zone-member security CONFROOM
+interface g0/1
+zone-member security INSIDE
+interface s0/0/1
+zone-member security INTERNET
+
+policy-map type inspect inside
+class class-default
+pass
+
+zone-pair security INSIDE source INSIDE destination INSIDE
+service-policy type inspect inside
+
+Comandos para verificar la creación
+-----------------------------------------
+show zone-pair security
+show policy-map type inspect zone-pair

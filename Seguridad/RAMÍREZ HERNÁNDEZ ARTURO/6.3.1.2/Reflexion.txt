@@ -1,0 +1,3 @@
+En esta práctica configuramos el STP y el número de direcciones MAC que debe de conocer cada uno de los puertos.
+Con el propósito de prevenir que algún desconocido o persona ajena a la red pueda tener acceso a la misma y también se configuro con el propósito de mitigar ataques de manipulación de STP.
+En general me fue un poco difícil de configurar ya que no recuerdo correctamente los comandos que se tienen que usar para configurar correctamente el STP y la seguridad de puertos pero al final se concluyó la práctica de manera satisfactoria.

@@ -1,0 +1,47 @@
+R1,R2,R3
+router ospf 1
+area 0 authentication message-digest
+exit
+
+R1
+interface s0/0/0
+ip ospf message-digest-key 1 md5 MD5pa55
+no shutdown 
+exit 
+
+R2
+interface s0/0/0
+ip ospf message-digest-key 1 md5 MD5pa55
+no shutdown 
+exit
+interface s0/0/1
+ip ospf message-digest-key 1 md5 MD5pa55
+no shutdown 
+exit
+
+R3
+interface s0/0/1
+ip ospf message-digest-key 1 md5 MD5pa55
+no shutdown 
+exit
+
+
+R1,R2,R3
+ntp server 192.168.1.5
+ntp authenticate
+ntp trusted-key 1
+ntp authentication-key 1 md5 NTPpa55
+ntp update-calendar
+service timestamps log datetime msec 
+logging 192.168.1.6
+logging trap debugging
+
+R3 
+username SSHadmin privilege 15 secret ciscosshpa55
+line vty 0 4
+transport input ssh
+login local
+exit
+ip ssh version 2
+ip ssh authentication-retries 2
+ip ssh time-out 90

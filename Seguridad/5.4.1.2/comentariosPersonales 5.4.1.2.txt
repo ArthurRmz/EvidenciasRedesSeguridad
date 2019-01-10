@@ -1,0 +1,4 @@
+Como podemos ver en esta practica lo que se hizo fue la configuracion de IPS para denegar y permitir el trafico de la red.
+En la practica se presentaron algunas problematicas debido a que en la practica no se menciona que se tiene que reiniciar el router para que acepte el paquete de las tecnologias de seguridad.
+Y tambien se me dificulto la configuracion del IPS porque no es tan sencillo como otras configuraciones que he realizado con anterioridad.
+Ademas es interesante ver como funciona el IPS en conjunto con Syslog.
