@@ -1,0 +1,58 @@
+Suponga que usted se dispone a crear un red.
+¿Cuales caracteristicas se necesitan para que no se vea afectada la interaccion de la red con el usuario?
+¿Y describa brevemente dichas caracteristicas?
+
+Tolerancia a fallas
+	Es cuando se limita el impacto de las fallas en una red.
+	Y permite recuperarse rapidamente de alguna falla si se llega a presentar.
+Escalabilidad
+	Es cuando una red tiene la capacidad de expandirse y adaptar nuevos dispositivos a la red sin que el rendimiento de los demas dispositivos se comprometa.
+Calidad de servicio (QoS)
+	Se refiere a dar prioridad a los servicios que ofrece la red (video, audio, texto en ese orden) para que no se vea afectada la interaccion del usuario con la red.
+Seguridad
+	Hace referencia a proteger la informacion que contienen los paquetes que se transmiten por la red y la informacion de los dispositivos conectados a la red.
+	
+Suponga que un administrador de red configura un switch de la siguiente manera:
+S1# configure terminal
+S1(config)# line console 0
+S1(config-line)# password usuario1
+S1(config-line)# login
+S1(config-line)# exit
+S1(config)# exit
+S1#exit
+S1> enable
+S1# configure terminal
+S1(config)# enable password usuario2
+S1(config)# exit
+S1#exit
+S1> enable
+S1# configure terminal
+S1(config)# enable secret usuario3
+S1(config)# exit
+S1#exit
+User Access Verification
+Password:
+¿Pero el administrador no sabe en que orden deberia de ingresar las contraseñas que el ingreso, cual seria el orden correcto y porque?
+
+usuario1
+usuario3
+Se deben de ingresar de esta forma porque la la primer contraseña es la del modo EXEC del usuario que se definio con los comandos "line console 0, password usuario1, login".
+Y en el modo EXEC privilegiado se definieron 2 contraseñas pero "enable secret usuario3" es la que tiene prioridad porque esta cifrada.
+
+Suponga que un administrador de red configura un switch de la siguiente manera:
+S1# configure terminal
+S1(config)# line console 0
+S1(config-line)# password usuario1
+S1(config-line)# login
+S1(config-line)# exit
+S1(config)#exit
+S1# configure terminal
+S1(config)# service password-encryption
+S1(config)# exit
+S1#
+	¿Ahora el quiere verificar que fue lo que hizo el comando "service password-encryption" de que manera podria verificarlo?  
+Se puede lograr ver que las contraseñas estan cifradas se puede con el comando "show running-config"
+	¿Cual es la funcion de ese comando?
+Mostrar la configuracion actual del dispositivo es decir la configuracion que esta en la RAM.
+	¿Y como podria guardar la configuracion que tiene el switch?
+Eso se puede lograr con el comando "copy running-config startup-config".

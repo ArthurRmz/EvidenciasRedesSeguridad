@@ -1,0 +1,13 @@
+no ip domain-lookup
+hostname ISP-R1
+service password-encryption
+enable secret class
+banner motd #
+Warning. #
+line con 0
+password cisco
+login
+logging synchronous
+line vty 0 4
+password cisco
+login

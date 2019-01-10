@@ -1,0 +1,10 @@
+Preguntas 3.3.2.6 - 3.3.4.1
+
+1.- ¿Qué es necesario para que haya una coincidencia entre la dirección IPv4 de destino de un paquete y una ruta en la tabla de routing?
+	Al menos una cantidad mínima de los bits del extremo izquierdo deben coincidir entre la dirección IPv4 del paquete y la ruta en la tabla de routing
+
+2.- En IPv4 según la tabla de enrutamiento, ¿Cúal es siempre la ruta preferida?
+	La ruta con la mayor cantidad de bits del extremo izquierdo equivalentes, o la coincidencia más larga con la dirección IPv4 de destino del paquete.
+
+3.- ¿Qué ocurre si no hay coincidencia con ninguna ruta de la tabla de enrutamiento?
+	El router descarta el paquete

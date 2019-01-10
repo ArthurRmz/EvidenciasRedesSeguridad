@@ -1,0 +1,8 @@
+1.-¿Que comando se utiliza para habilitar RIP?
+R: router rip
+2.-¿Como se deshabilita y elimina RIP?
+R: no router rip
+3.-¿Que comando se utiliza para habilitar el routing RIP para una red?
+R: network "dirección de la red"
+4.-¿Como sabemos que el routing RIP está configurado y en ejecución en algún router?
+R: ejecutando el comando show ip protocols

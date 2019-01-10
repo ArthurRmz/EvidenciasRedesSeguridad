@@ -1,0 +1,36 @@
+no ip domain-lookup
+hostname R1
+service password-encryption
+enable secret class
+banner motd #Unauthorized access is strictly prohibited.#
+line con 0
+password cisco
+login
+logging synchronous
+line vty 0 4
+password cisco
+login
+
+
+no ip domain-lookup
+hostname S1
+service password-encryption
+enable secret class
+banner motd #Unauthorized access is strictly prohibited.#
+line con 0
+password cisco
+login
+logging synchronous
+line vty 0 15
+password cisco
+login
+exit
+
+
+ip dhcp excluded-address 192.168.1.1 192.168.1.10
+ip dhcp pool DHCP1
+network 192.168.1.0 255.255.255.0
+default-router 192.168.1.1
+dns-server 192.168.1.9
+lease 3
+

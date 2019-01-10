@@ -1,0 +1,13 @@
+tracert direccion_ip_destino
+
+Rutas estaticas 
+	ipv6 route ::/0 direccion_ip_destino(v6) o puerto
+
+Rutas estaticas flotantes
+	ipv6 route ::/0 direccion_ip_destino(v6) o puerto distancia administrativa
+
+Ver las direccione ipv6 ingresadas
+	R1#show run | include ipv6 route
+	
+Comando para habilitar ipv6 en router
+	ipv6 unicast-routing

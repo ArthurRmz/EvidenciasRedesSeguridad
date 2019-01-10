@@ -1,0 +1,126 @@
+ISP-R1#show running-config 
+Building configuration...
+
+Current configuration : 1823 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname ISP-R1
+!
+!
+!
+enable secret 5 $1$mERr$9cTjUIEqNGurQiFU.ZeCi1
+!
+!
+!
+!
+!
+!
+no ip cef
+ipv6 unicast-routing
+!
+no ipv6 cef
+!
+!
+!
+username admin secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+!
+!
+license udi pid CISCO1941/K9 sn FTX15247L17
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+no ip domain-lookup
+ip domain-name cisco.com
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 207.248.160.1 255.255.255.255
+ ipv6 address 2005:DB8:CAFE::1/64
+ ipv6 rip ISPR1en enable 
+!
+interface GigabitEthernet0/0
+ ip address 209.165.201.6 255.255.255.252
+ ip access-group FIREWALL in
+ duplex auto
+ speed auto
+ ipv6 address 2001:DB8:ACAD:2::1/64
+ ipv6 rip ISPR1en enable 
+!
+interface GigabitEthernet0/1
+ ip address 209.165.201.10 255.255.255.252
+ ip access-group FIREWALL in
+ duplex auto
+ speed auto
+ ipv6 address 2001:DB8:ACAD:3::1/64
+ ipv6 rip ISPR1en enable 
+!
+interface Serial0/0/0
+ ip address 209.165.201.2 255.255.255.252
+ ipv6 address 2001:DB8:ACAD:1::1/64
+ ipv6 rip ISPR1en enable 
+ clock rate 2000000
+!
+interface Serial0/0/1
+ no ip address
+ ip access-group FIREWALL in
+ clock rate 2000000
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ipv6 router rip ISPR1en
+!
+ip classless
+ip route 209.165.200.224 255.255.255.224 209.165.201.1 
+ip route 0.0.0.0 0.0.0.0 Serial0/0/1 
+ip route 0.0.0.0 0.0.0.0 209.165.201.14 
+!
+ip flow-export version 9
+!
+!
+ip access-list extended FIREWALL
+ permit icmp 209.165.201.0 0.0.0.15 any echo-reply
+ deny icmp 209.165.201.0 0.0.0.15 any echo
+ permit ip 209.165.201.0 0.0.0.15 any
+!
+no cdp run
+!
+banner motd ^C
+Warning. ^C
+!
+!
+!
+!
+line con 0
+ password 7 0822455D0A16
+ logging synchronous
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 0822455D0A16
+ login local
+!
+!
+!
+end
